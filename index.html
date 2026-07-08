@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f766e" />
+  <link rel="manifest" href="manifest.json" />
+  <title>Claesson Summer Trip 2026</title>
+  <style>
+    :root{--bg:#f7f3ea;--card:#fffdf7;--ink:#17202a;--muted:#68737d;--teal:#0f766e;--blue:#2563eb;--orange:#ea580c;--green:#15803d;--red:#b91c1c;--line:#e8dcc6;--shadow:0 8px 24px rgba(23,32,42,.10);}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.35} 
+    header{position:sticky;top:0;z-index:10;background:linear-gradient(135deg,#0f766e,#0e7490);color:white;padding:18px 16px 12px;box-shadow:0 4px 20px rgba(0,0,0,.18)}
+    header h1{margin:0;font-size:22px} header p{margin:4px 0 0;opacity:.9;font-size:13px}
+    nav{display:flex;gap:8px;overflow:auto;padding:10px 12px;background:#ffffffcc;backdrop-filter:blur(8px);position:sticky;top:73px;z-index:9;border-bottom:1px solid var(--line)}
+    nav button{border:0;border-radius:999px;padding:10px 14px;background:#eee2cf;color:#2b2b2b;white-space:nowrap;font-weight:650} nav button.active{background:var(--teal);color:white}
+    main{padding:14px;max-width:900px;margin:0 auto 70px}.tab{display:none}.tab.active{display:block}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow);margin-bottom:12px}.card h2,.card h3{margin:.1rem 0 .6rem}.small{font-size:13px;color:var(--muted)}.pill{display:inline-flex;gap:6px;align-items:center;border-radius:999px;background:#ecfdf5;color:#065f46;padding:6px 10px;font-weight:700;font-size:12px;margin:4px 4px 4px 0}.orange{background:#fff7ed;color:#9a3412}.blue{background:#eff6ff;color:#1d4ed8}.red{background:#fef2f2;color:#991b1b}.check{display:flex;align-items:flex-start;gap:10px;padding:9px 4px;border-bottom:1px dashed #eadfcf}.check:last-child{border-bottom:0}.check input{width:20px;height:20px;margin-top:1px;accent-color:var(--teal)}.check label{flex:1}.check.done label{text-decoration:line-through;color:var(--muted)}.section-title{display:flex;justify-content:space-between;align-items:center;gap:8px}.progress{height:8px;background:#eadfcf;border-radius:999px;overflow:hidden}.bar{height:100%;background:var(--teal);width:0}.btn{border:0;border-radius:12px;background:var(--teal);color:white;padding:10px 12px;font-weight:700;text-decoration:none;display:inline-block}.btn.secondary{background:#334155}.btn.light{background:#eee2cf;color:#17202a}.day{border-left:6px solid var(--teal)}.route{font-weight:800;font-size:18px}.note{width:100%;min-height:110px;border:1px solid var(--line);border-radius:14px;padding:10px;font:inherit;background:#fff}.packing-map{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#10202b;color:#e6fffb;border-radius:16px;padding:14px;white-space:pre-wrap}.footer{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:8px 14px;display:flex;justify-content:center;gap:8px}.family{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}.person{border-radius:16px;padding:12px;background:#fff;border:1px solid var(--line);text-align:center;font-weight:800}.warning{background:#fff7ed;border-color:#fed7aa}details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px;margin:8px 0}summary{font-weight:800;cursor:pointer}.tag{font-size:11px;font-weight:800;color:white;background:#64748b;border-radius:999px;padding:3px 7px} @media print{header,nav,.footer{display:none} main{max-width:none}.tab{display:block}.card{box-shadow:none;break-inside:avoid}}
+  </style>
+</head>
+<body>
+<header><h1>🚗 Claesson Summer Trip 2026</h1><p>Packlista, resplan och checklista för bilsemestern</p></header>
+<nav id="nav"></nav>
+<main>
+  <section id="start" class="tab active">
+    <div class="card"><h2>🏠 Översikt</h2><p>15 dagar genom Tyskland, Österrike, Italien och Tjeckien. Teodor ansluter ca 19/7 och packas för 7 dagar.</p><div><span class="pill">2 vuxna + 3 barn</span><span class="pill orange">Takbox + kylbox</span><span class="pill blue">7 nätter Sirmione</span></div></div>
+    <div class="grid">
+      <div class="card"><h3>✅ Total packning</h3><div class="progress"><div class="bar" id="totalBar"></div></div><p class="small"><span id="totalText">0 av 0</span> avbockade</p></div>
+      <div class="card"><h3>🗺️ Karta</h3><p class="small">Lägg in länken till er Google My Maps här när du har den.</p><input id="mapLinkInput" placeholder="Klistra in My Maps-länk" style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--line)"><br><br><a id="mapLink" class="btn" href="#" target="_blank">Öppna karta</a></div>
+    </div>
+    <div class="card"><h3>🚗 Packa bilen</h3><div class="packing-map">TAKBOX
+🧳 Väska 1: Johan + Johanna + Sixten
+🧳 Väska 2: Liv + strand + gemensamt
+🎒 Teodors väska: separat, 7 dagar
+
+BAGAGE / LÄTT ÅTKOMLIGT
+❄️ Kylbox med frukost
+🏖️ Strandväska
+💊 Medicinväska
+💻 Elektronikväska
+
+KUPÉ
+🎒 En ryggsäck per person
+🛏️ 5 kuddar + 2 filtar</div></div>
+  </section>
+  <section id="resplan" class="tab"></section>
+  <section id="packning" class="tab"></section>
+  <section id="kylbox" class="tab"></section>
+  <section id="strand" class="tab"></section>
+  <section id="gardaland" class="tab"></section>
+  <section id="hotell" class="tab"></section>
+  <section id="dagbok" class="tab"></section>
+</main>
+<div class="footer"><button class="btn light" onclick="resetDone()">Nollställ bockar</button><button class="btn secondary" onclick="window.print()">Skriv ut</button></div>
+<script>
+const tabs=[['start','Start'],['resplan','Resplan'],['packning','Packning'],['kylbox','Kylbox'],['strand','Strand'],['gardaland','Gardaland'],['hotell','Hotell'],['dagbok','Dagbok']];
+const nav=document.getElementById('nav'); tabs.forEach(([id,name],i)=>{const b=document.createElement('button');b.textContent=name;b.onclick=()=>showTab(id,b); if(i===0)b.classList.add('active'); nav.appendChild(b)});
+function showTab(id,btn){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));btn.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'});} 
+const itinerary=[
+['12 juli','Malmö → Knüllwald','Hotel Linden','ca 8–8,5 h + färja','Kylboxfrukost, rast, färja Rødby–Puttgarden'],['13 juli','Knüllwald → Wängle','Einzimmerwohnung am Lechweg','ca 6–6,5 h','A7 söderut, små stopp, ev bad tidigare/längs vägen'],['14 juli','Wängle → Sirmione','Via Giovanni da Verrazzano 15','ca 4–4,5 h','Kom fram, handla, enkel middag'],['15–18 juli','Sirmione','Sirmione','—','Bad, mat hemma, små utflykter'],['ca 19 juli','Teodor ansluter','Sirmione','—','Teodors 7-dagarsväska ska vara klar'],['21 juli','Sirmione → Mestre','Venice Sanella Rooms','ca 2–2,5 h','Tåg in till Venedig'],['22 juli','Mestre → Obertauern','Hotel Laaxerhof','ca 4–4,5 h','Alperna'],['23 juli','Obertauern → Třeboň','Penzion Neptun','ca 4,5 h','Tjeckien'],['24 juli','Třeboň','Penzion Neptun','—','Lugn dag'],['25 juli','Třeboň → Trutnov','Olympland Hotel','ca 3–3,5 h','Ev Adršpach Rocks'],['26 juli','Trutnov → Malmö','Hemma','ca 9–10 h + färja','Lång hemresa']];
+document.getElementById('resplan').innerHTML='<div class="card"><h2>📅 Resplan</h2><p class="small">Tider är planeringstider. Kolla Google Maps samma morgon.</p></div>'+itinerary.map((d,i)=>`<div class="card day"><div class="small">${d[0]}</div><div class="route">${d[1]}</div><p><b>Boende:</b> ${d[2]}<br><b>Körtid:</b> ${d[3]}</p><p>${d[4]}</p><div>${checklist('day'+i,['Pass/dokument lättåtkomligt','Kylbox säkrad','Laddare i bilen','Kudde/filt framme','Kolla hotellrummet innan avfärd'])}</div></div>`).join('');
+const lists={
+'Dokument':['Pass/ID till alla','Körkort','Registreringsbevis bil','Försäkringspapper','Europeiskt sjukförsäkringskort','Bokningsbekräftelser','Färjebiljetter','Kontanter i euro','Bankkort'],
+'Bil & säkerhet':['Reflexvästar till alla','Varningstriangel','Första hjälpen-kit','Spolarvätska','Motorolja','AdBlue-plan','Däcktryck kontrollerat','Parkeringsskiva','Soppåsar','Våtservetter','Toapapper/pappersrulle'],
+'Johan':['7–8 t-shirts','3–4 shorts','1 långbyxa','Underkläder','Strumpor','Badbyxor','Sneakers på fötterna','Sandaler/badskor','Solglasögon','Keps','Toalettartiklar'],
+'Johanna':['7–8 överdelar','3–4 shorts/kjol/byxa','Underkläder','Strumpor','Badkläder','Sneakers på fötterna','Sandaler/badskor','Solglasögon','Receptbelagd medicin','Toalettartiklar'],
+'Sixten':['7–8 t-shirts','3–4 shorts','1 långbyxa','Underkläder','Strumpor','Badkläder','Sneakers på fötterna','Sandaler/badskor','Keps','Hörlurar USB-C','GoPro'],
+'Liv':['8–10 ombyten','Pyjamas','Underkläder','Strumpor','Badkläder','Sandaler/badskor','Solhatt/keps','Gosedjur','Ritbok/småleksaker','Ombyte i akutväska'],
+'Teodor – 7 dagar':['5 t-shirts','2 shorts','1 långbyxa','7 kalsonger','7 par strumpor','1 hoodie','Badbyxor','Badhandduk','Sneakers','Sandaler/badskor','Keps','Solglasögon','Mobil + laddare','Hörlurar'],
+'Elektronik':['Laptop + laddare','2–3 powerbanks','Eventuellt Nintendo Switch + laddare','Sixtens GoPro + laddare','Extra microSD till GoPro','4 USB-C-hörlurar','2 Lightning-kablar','3 USB-C-kablar','Billaddare','Grenuttag/flerladdare','Vattentät mobilpåse'],
+'Reseapotek':['Alvedon','Ipren','Plåster','Skavsårsplåster','Sårtvätt','Pincett','Fästingplockare','Allergitabletter','Vätskeersättning','Myggmedel','After Bite','Solkräm SPF 30–50','After Sun']
+};
+document.getElementById('packning').innerHTML='<div class="card"><h2>📦 Packlista</h2><p class="small">Bockarna sparas automatiskt i denna webbläsare.</p></div>'+Object.entries(lists).map(([title,items])=>`<details open><summary>${title}</summary>${checklist('pack-'+title,items)}</details>`).join('');
+const kitchen=['Salt','Svartpeppar','Matlådor 2–3 st','Ziplock-påsar','Aluminiumfolie','Plastfolie','Diskborste','Disktrasa','Kökshandduk','Tvättmedel/tvättark','Klädnypor','Tunn tvättlina','Stor tvättpåse','Nätpåse till badkläder'];
+const food=['Bröd/frallor','Smör','Ost','Skinka/kalkon','Kokta ägg','Yoghurt','Granola','Mjölk','Frukt','Vattenflaskor','Juice/saft','Kaffe/termos','Snacks','Kylklampar'];
+const shop=['Mjölk','Ägg','Bröd','Smör','Ost','Skinka','Yoghurt','Frukt','Pasta','Pastasås','Köttfärs/kyckling','Sallad','Parmesan','Mineralvatten','Glass','Diskmedel','Toapapper vid behov'];
+document.getElementById('kylbox').innerHTML=`<div class="card"><h2>❄️ Kylbox & kök</h2><p>Ni kör blandat: frukost/matsäck ibland och restaurang ibland.</p></div><details open><summary>Kylbox hemifrån</summary>${checklist('food',food)}</details><details open><summary>Kök att ta med</summary>${checklist('kitchen',kitchen)}</details><details open><summary>Handla första kvällen i Italien</summary>${checklist('shop',shop)}</details>`;
+const beach=['Strandhanddukar 3–4 st','Badkläder','Badskor/sandaler','Solkräm','After Sun','Badboll','Armringar','Hink och spade','Någon dykleksak','Vattentät mobilpåse','Kylväska/strandväska','Vatten','Frukt/snacks','Keps/solhatt','Solglasögon','Påse för blöta badkläder'];
+document.getElementById('strand').innerHTML=`<div class="card"><h2>🏖️ Strandläge</h2><p>Gardasjön har många stenstränder, så badskor är smart.</p></div>${checklist('beach',beach)}`;
+const gardaland=['Biljetter','Keps/solhatt','Solkräm','Powerbank','Vattenflaskor','Snacks','Våtservetter','Ombyte till Liv','Eventuellt badkläder','GoPro','Vattentät mobilpåse','Små kontanter/kort','Parkering sparad i kartan'];
+document.getElementById('gardaland').innerHTML=`<div class="card"><h2>🎢 Gardaland</h2><p>En egen snabbcheck inför parkdagen.</p></div>${checklist('gardaland',gardaland)}`;
+const hotels=['Kolla under sängar','Kolla badrum','Kolla kylskåp/kylbox','Laddare ur vägguttag','Pass och dokument','Mediciner','Kuddar och filtar','Barnens hörlurar','GoPro/Switch','Solglasögon','Smutsvätt samlad','Nyckel/kort återlämnat'];
+document.getElementById('hotell').innerHTML=`<div class="card"><h2>🏨 Lämna hotell-checklista</h2><p>Använd varje gång ni checkar ut.</p></div>${checklist('hotel-leave',hotels)}`;
+document.getElementById('dagbok').innerHTML='<div class="card"><h2>📸 Resedagbok</h2><p>Skriv kort varje kväll. Sparas i webbläsaren.</p></div>'+itinerary.map((d,i)=>`<div class="card"><h3>${d[0]} – ${d[1]}</h3><textarea class="note" data-note="note${i}" placeholder="Bäst idag, bästa glassen, roligaste stoppet, kostnad..."></textarea></div>`).join('');
+function checklist(key,items){return items.map((text,i)=>{const id=key+'-'+i;return `<div class="check" data-id="${id}"><input type="checkbox" id="${id}"><label for="${id}">${text}</label></div>`}).join('')}
+function load(){document.querySelectorAll('.check input').forEach(cb=>{cb.checked=localStorage.getItem('ck-'+cb.id)==='1'; cb.closest('.check').classList.toggle('done',cb.checked); cb.onchange=()=>{localStorage.setItem('ck-'+cb.id,cb.checked?'1':'0'); cb.closest('.check').classList.toggle('done',cb.checked); updateProgress();};});document.querySelectorAll('textarea[data-note]').forEach(t=>{t.value=localStorage.getItem(t.dataset.note)||''; t.oninput=()=>localStorage.setItem(t.dataset.note,t.value)});const ml=localStorage.getItem('mapLink')||'';mapLinkInput.value=ml;setMapLink(ml);mapLinkInput.oninput=e=>{localStorage.setItem('mapLink',e.target.value);setMapLink(e.target.value)};updateProgress();}
+function setMapLink(v){const a=document.getElementById('mapLink'); if(v){a.href=v;a.style.opacity=1}else{a.href='#';a.style.opacity=.5}}
+function updateProgress(){const boxes=[...document.querySelectorAll('.check input')];const done=boxes.filter(b=>b.checked).length;const pct=boxes.length?Math.round(done/boxes.length*100):0;document.getElementById('totalBar').style.width=pct+'%';document.getElementById('totalText').textContent=`${done} av ${boxes.length}`;}
+function resetDone(){if(confirm('Nollställa alla avbockningar?')){Object.keys(localStorage).filter(k=>k.startsWith('ck-')).forEach(k=>localStorage.removeItem(k));load();}}
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});} load();
+</script>
+</body>
+</html>
