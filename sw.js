@@ -1,4 +1,4 @@
-const CACHE = 'claesson-trip-v3-20260708';
+const CACHE = 'claesson-trip-v32-20260708';
 const ASSETS = ['./', './index.html', './manifest.json', './icon.svg'];
 
 self.addEventListener('install', event => {
