@@ -1,12 +1,16 @@
 {
-  "name":"Claesson Summer Trip 2026",
-  "short_name":"Claesson Trip",
-  "description":"Digital reseassistent för familjens bilsemester 2026",
-  "start_url":"./",
-  "scope":"./",
-  "display":"standalone",
-  "background_color":"#f3f7f6",
-  "theme_color":"#0f766e",
-  "orientation":"portrait-primary",
-  "icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+  "name": "Claesson Summer Trip 2026",
+  "short_name": "Claesson Trip",
+  "description": "Digital reseassistent för familjens bilsemester 2026",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f7f5",
+  "theme_color": "#0f766e",
+  "orientation": "portrait-primary",
+  "categories": ["travel", "productivity", "lifestyle"],
+  "lang": "sv-SE",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
 }
