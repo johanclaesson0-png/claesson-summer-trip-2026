@@ -50,7 +50,7 @@
     <header class="hero">
       <div class="topbar">
         <div class="brand"><h1>🚗 Claesson Summer Trip 2026</h1><p>Familjens reseapp · 12–27 juli · Malmö → Gardasjön → Venedig → Hamburg → hem</p></div>
-        <div class="status"><div class="chip">PWA v3.3.2 · Tips</div><button class="themeBtn" id="themeBtn" title="Byt tema">◐</button></div>
+        <div class="status"><div class="chip">PWA v3.3.3 · Tips</div><button class="themeBtn" id="themeBtn" title="Byt tema">◐</button></div>
       </div>
       <div class="heroGrid">
         <div class="glass">
@@ -87,7 +87,7 @@
   <nav class="bottomNav" id="bottomNav"></nav>
   <div id="toast" class="toast">Sparat</div>
 <script>
-const APP_VERSION='3.3.0';
+const APP_VERSION='3.3.3';
 const GH_PAGES_URL='https://johanclaesson0-png.github.io/claesson-summer-trip-2026/';
 const IDEAS_FORM_URL='https://docs.google.com/forms/d/e/1FAIpQLSelEh6Da3aLYO5mtmJRtYH-vpOFkGbpoJG06z_JpzMh9jX9fw/viewform?usp=sharing&ouid=105949351897260935664';
 const IDEAS_CSV_URL='https://docs.google.com/spreadsheets/d/1tCG62Pp7a4oMt-Xzu62NSDhnyj7DFDXoI6QQvqP4R5k/gviz/tq?tqx=out:csv&sheet=Formul%C3%A4rsvar%201';
@@ -267,7 +267,7 @@ function mapIdeaRows(rows){
     status:getCol(h,['status'])
   };
   return rows.slice(1).map(r=>({
-    time:r[idx.time]||'', name:r[idx.name]||'', area:r[idx.area]||'', cat:r[idx.cat]||'Annat', by:r[idx.by]||'', comment:r[idx.comment]||'', maps:r[idx.maps]||'', status:r[idx.status]||'Kanske'
+    time: idx.time>=0 ? (r[idx.time]||'') : '', name: idx.name>=0 ? (r[idx.name]||'') : '', area: idx.area>=0 ? (r[idx.area]||'') : '', cat: idx.cat>=0 ? (r[idx.cat]||'') : '', by: idx.by>=0 ? (r[idx.by]||'') : '', comment: idx.comment>=0 ? (r[idx.comment]||'') : '', maps: idx.maps>=0 ? (r[idx.maps]||'') : '', status: idx.status>=0 ? (r[idx.status]||'') : ''
   })).filter(x=>x.name||x.area||x.comment);
 }
 let ideasCache=[]; let ideaFilter='alla';
@@ -301,7 +301,7 @@ function renderIdeas(){
   list.innerHTML=filtered.slice().reverse().map(x=>{
     const mapHref=x.maps&&/^https?:\/\//i.test(x.maps)?x.maps:mapsSearch([x.name,x.area].filter(Boolean).join(' '));
     const emoji=ideaEmoji(x.cat);
-    return `<div class="ideaCard"><h3>${emoji} ${esc(x.name||'Namnlöst tips')}</h3><div class="ideaMeta"><span class="pill blue">${esc(x.cat||'Annat')}</span><span class="pill orange">${esc(x.status||'Kanske')}</span>${x.area?`<span class="pill">${esc(x.area)}</span>`:''}${x.by?`<span class="pill purple">${esc(x.by)}</span>`:''}</div>${x.comment?`<p>${esc(x.comment)}</p>`:''}<div class="actions"><a class="btn soft" target="_blank" rel="noopener" href="${esc(mapHref)}">Öppna karta</a></div></div>`;
+    return `<div class="ideaCard"><h3>${emoji} ${esc(x.name||'Namnlöst tips')}</h3><div class="ideaMeta">${x.cat?`<span class="pill blue">${esc(x.cat)}</span>`:''}${x.status?`<span class="pill orange">${esc(x.status)}</span>`:''}${x.area?`<span class="pill">${esc(x.area)}</span>`:''}${x.by?`<span class="pill purple">${esc(x.by)}</span>`:''}</div>${x.comment?`<p>${esc(x.comment)}</p>`:''}<div class="actions"><a class="btn soft" target="_blank" rel="noopener" href="${esc(mapHref)}">Öppna karta</a></div></div>`;
   }).join('');
 }
 function ideaEmoji(cat){cat=String(cat||'').toLowerCase(); if(cat.includes('bad'))return'🏖️'; if(cat.includes('restaurang')||cat.includes('mat'))return'🍕'; if(cat.includes('barn'))return'🧒'; if(cat.includes('regn'))return'🌧️'; if(cat.includes('shopping'))return'🛍️'; if(cat.includes('parkering'))return'🅿️'; return'📍';}
